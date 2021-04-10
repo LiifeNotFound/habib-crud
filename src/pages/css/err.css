@@ -1,0 +1,12 @@
+.err{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.err h1{
+    background: #fff;
+    padding: 2rem;
+    color: black;
+}
