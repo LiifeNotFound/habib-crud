@@ -13,36 +13,41 @@ import './global.css';
 // pages
 import HomePage from './pages/HomePage';
 import Users from './pages/users/List';
+import UsersEdit from './pages/users/Edit';
 import PageNotFound from './pages/err/404';
 
 // global vars
-global.serverUrl = "http://localhost:3001/"
+global.serverUrl = 'http://localhost:3001/';
 
-class App extends Component {
-	render() {
-		return (
-			<Router>
-				<Switch>
-					<Route
-						exact
-						path="/"
-						component={HomePage}
-					/>
-					<Route
-						exact
-						path="/404"
-						component={PageNotFound}
-					/>
-					<Route
-						exact
-						path="/users"
-						component={Users}
-					/>
-					<Redirect to="/404" />
-				</Switch>
-			</Router>
-		);
-	}
-}
+export default () => {
+	return (
+		<Router>
+			<Switch>
+				<Route exact path="/" component={HomePage} />
+				<Route
+					exact
+					path="/404"
+					component={PageNotFound}
+				/>
 
-export default App
+				<Route exact path="/users" component={Users} />
+				<Route
+					exact
+					path="/users/create"
+					component={() => (
+						<UsersEdit dml="create" />
+					)}
+				/>
+				<Route
+					exact
+					path="/users/update"
+					component={() => (
+						<UsersEdit dml="update" />
+					)}
+				/>
+
+				<Redirect to="/404" />
+			</Switch>
+		</Router>
+	);
+};

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import EntityCard from '../components/entityCard/entityCard';
 import { Link } from 'react-router-dom';
 
-class HomePage extends Component {
+export default class HomePage extends Component {
 	render() {
 		return (
 			<>
@@ -63,4 +63,3 @@ class HomePage extends Component {
 		);
 	}
 }
-export default HomePage;

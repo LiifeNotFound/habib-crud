@@ -1,6 +1,9 @@
-import React, { Component, useState } from 'react';
-import ListCard from '../../components/listCard/listCard';
-import {MdModeEdit} from 'react-icons/md'
+import React, { Component } from 'react';
+import Card from '../../components/card/card';
+import { MdModeEdit } from 'react-icons/md';
+import { Link } from 'react-router-dom';
+import { IoMdAdd } from 'react-icons/io';
+import CreateButton from '../../components/createButton/createButton';
 const axios = require('axios');
 
 class List extends Component {
@@ -38,25 +41,52 @@ class List extends Component {
 
 		// return
 		return (
-			<ListCard listTitle="User">
-				{users.map((user) => (
-					<li key={user.ID}>
-						<div className="img">
-                            <img src="http://t04-hendrick.vigion.pt/habib-images/default.png" alt=""/>
-                        </div>
-						<div className="data">
-							<span>Name:</span>{' '}
-							{user.Name}{' '}
-							{user.Surname} <br />
-							<span>Username:</span> @
-							{user.Username}
-						</div>
-						<div className="edit">
-                            <MdModeEdit />
-                        </div>
-					</li>
-				))}
-			</ListCard>
+			<>
+				<CreateButton>
+					<Link to="/users/create">
+						<IoMdAdd />
+					</Link>
+				</CreateButton>
+				<Card listTitle="User List">
+					<ul>
+						<h1>Users List</h1>
+						{users.map((user) => (
+							<li key={user.ID}>
+								<div className="img">
+									<img
+										src="http://t04-hendrick.vigion.pt/habib-images/default.png"
+										alt=""
+									/>
+								</div>
+								<div className="data">
+									<span>
+										Name:
+									</span>{' '}
+									{
+										user.Name
+									}{' '}
+									{
+										user.Surname
+									}{' '}
+									<br />
+									<span>
+										Username:
+									</span>{' '}
+									@
+									{
+										user.Username
+									}
+								</div>
+								<div className="edit">
+									<Link to="/users/update">
+										<MdModeEdit />
+									</Link>
+								</div>
+							</li>
+						))}
+					</ul>
+				</Card>
+			</>
 		);
 	}
 }

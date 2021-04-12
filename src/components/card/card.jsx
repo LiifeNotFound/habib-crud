@@ -1,11 +1,10 @@
 import React from 'react';
-import './listCard.css';
+import './card.css';
 
 function ListCard(props) {
 	return (
 		<div className="list-card">
-			<h1>{props.listTitle} List</h1>
-			<ul>{props.children}</ul>
+			{props.children}
 		</div>
 	);
 }

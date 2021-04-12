@@ -17,6 +17,10 @@
 	list-style: none;
 }
 
+.list-card ul h1{
+	text-align: center;
+}
+
 .list-card ul li {
 	display: flex;
 	color: rgb(226, 226, 226);
